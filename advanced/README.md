@@ -22,7 +22,7 @@ Do not read this folder as a required curriculum. Start with the human guide, CL
 | `atomic-system-design.md` | Workflows need reusable parts and visible feedback loops. |
 | `token-optimization.md` | Context waste, long chats, or repeated file lookup slows work down. |
 | `small-scripts.md` | A repeated chore should become a discrete local command or mini app. |
-| `working-vocabulary.md` | Repeated shorthand like caveman or ponytail needs a file-backed definition. |
+| `working-vocabulary.md` | Named packages or tools need file-backed setup and usage notes. |
 | `sqlite-kb.md` | Local search would save tokens and repeated file reads. |
 | `macos.md` | Setting up macOS Apple Silicon tools. |
 | `dotdog.md` | Repo mapping or lightweight validation helps review. |

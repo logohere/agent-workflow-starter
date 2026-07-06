@@ -25,7 +25,7 @@ Use the guide in three passes:
 ```text
 Part 1: Basics — goal, files, AI stance, context hygiene, token optimization, handoffs
 Part 2: Next steps — GitHub workflow, checks, implementation plans, small scripts, macOS setup, local SQLite search
-Part 3: Advanced — atomic design, Dotdog, hooks, worktrees, agent skills, working vocabulary, browser automation, hosting, vector search
+Part 3: Advanced — atomic design, Dotdog, hooks, worktrees, agent skills, packages and named tools, browser automation, hosting, vector search
 ```
 
 Do Part 1 first. Add Part 2 when the workflow is useful. Treat Part 3 as optional.

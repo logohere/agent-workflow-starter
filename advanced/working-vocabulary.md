@@ -1,74 +1,42 @@
-# Working Vocabulary
+# Packages and Named Tools
 
-Working vocabulary turns repeated shorthand into file-backed instructions. Keep it public-safe and concrete.
+Named tools should be treated as software, not shorthand.
 
-Do not rely on private chat memory. If a term matters, define it here or in a project doc.
+If a term is a package, document the package. Do not redefine it as an agent mode unless the repo also has a mode with that exact name.
 
 ## Use when
 
-- A short term appears repeatedly in prompts.
-- The agent should switch modes quickly.
-- A term would be unclear to a new session.
-- A public repo needs reusable language without private context.
+- A package or named tool appears in prompts, setup, scripts, or agent instructions.
+- A new session needs to know what the tool is.
+- The tool has commands, install steps, checks, or approval gates.
+
+## Required note
+
+```text
+Name:
+What it is:
+Why it is used:
+Install path:
+Commands:
+Checks:
+Approval gates:
+Do not use when:
+Rollback:
+```
 
 ## Rules
 
 ```text
-define the term
-state when to use it
-state when not to use it
-show expected output
-keep private references out
+use real package names
+link to local docs or official docs when available
+do not invent package behavior
+ask before installing dependencies
+keep source files as truth
 ```
 
-## Caveman
+## If a term is just shorthand
 
-Meaning:
-
-```text
-Simplify aggressively. Remove abstraction. Explain in plain concrete terms. Prefer direct examples over theory.
-```
-
-Use when:
-
-```text
-an explanation is too abstract
-a guide sounds inflated
-the agent is hiding behind jargon
-a task needs first-principles clarity
-```
-
-Do not use when:
-
-```text
-precision depends on technical terms
-the audience expects specialist language
-```
-
-## Ponytail
-
-Meaning:
-
-```text
-Tighten, organize, and make presentable without changing the core idea.
-```
-
-Use when:
-
-```text
-a draft has the right content but weak shape
-a guide needs cleaner hierarchy
-a section needs polish without added scope
-```
-
-Do not use when:
-
-```text
-the underlying idea is wrong
-the work needs new research or new structure
-```
-
-## Add a term
+Define it separately as a mode only when it is useful and public-safe:
 
 ```text
 Term:
