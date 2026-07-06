@@ -1,0 +1,15 @@
+{
+  "name": "agent-workflow-starter",
+  "version": "0.1.0",
+  "description": "Public starter repo for agent-assisted knowledge work",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "validate": "node scripts/validate.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "map": "node scripts/map.mjs",
+    "tokens": "node scripts/tokens.mjs"
+  }
+}

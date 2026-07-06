@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Workflow Starter User Guide</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, sans-serif; line-height: 1.55; max-width: 920px; margin: 40px auto; padding: 0 20px; color: #1f2937; }
+    h1, h2, h3 { line-height: 1.2; color: #111827; }
+    .subtitle, .lede { color: #4b5563; font-size: 1.08rem; }
+    code, pre { background: #f3f4f6; border-radius: 6px; }
+    pre { padding: 14px; overflow-x: auto; }
+    code { padding: 1px 4px; }
+    section { border-top: 1px solid #e5e7eb; padding-top: 24px; margin-top: 28px; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+    th, td { border: 1px solid #e5e7eb; padding: 8px; text-align: left; vertical-align: top; }
+    .workflow { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agent Workflow Starter User Guide</h1>
+    <p class="subtitle">A practical guide for using Claude, Claude Code, GitHub, templates, checks, and lightweight setup/config to run reviewable agent workflows.</p>
+  </header>
+
+  <section>
+    <h2>What this guide is for</h2>
+    <p>Agent Workflow Starter helps a user turn knowledge-work goals into scoped, reviewable, reusable work. It is for writing, research, guides, tutorials, course material, websites, digital products, project docs, and lightweight supporting tools.</p>
+    <p>The user does not need to become a software developer. Claude handles planning, setup proposals, repo mechanics, checks, and handoffs while the user owns judgment, priorities, review, publishing, and merge decisions.</p>
+  </section>
+
+  <section>
+    <h2>The basic interaction model</h2>
+    <table>
+      <tr><th>Surface</th><th>Use it for</th></tr>
+      <tr><td>Claude Web/Desktop</td><td>Goal shaping, plan docs, plan review, risk review, implementation plans, and handoff prompts.</td></tr>
+      <tr><td>Claude Code</td><td>Repo inspection, setup, file edits, checks, branches, pull requests, and final handoff.</td></tr>
+      <tr><td>GitHub</td><td>Issues, branches, pull requests, review, checks, history, and releases.</td></tr>
+      <tr><td>Agent Workflow Starter files</td><td>Reusable operating rules, templates, workflow docs, project docs, and handoffs.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>First-run setup</h2>
+    <p>After cloning or forking the repo, ask Claude Code to set it up. The user should not manually perform setup unless Claude Code asks for approval or a system-level action.</p>
+    <pre>You are setting up my cloned Agent Workflow Starter repo.
+Read README.md, human-guide.html, agent-ops.md, and bootstrap/bootstrap.md.
+Inspect the current state before changing files.
+Prepare only what is needed for the repo to work locally.
+Run the relevant checks.
+Do not change dotfiles, hooks, GitHub workflows, publishing settings, or account-level settings without approval.
+End with a setup report: what exists, what changed, checks run, what I should review, and suggested next steps.</pre>
+  </section>
+
+  <section>
+    <h2>The workflow spine</h2>
+    <div class="workflow">Goal → Plan Doc → Plan Review → Implementation Plan → Definition of Done → Todos → GitHub Issue → Claude Code Handoff → Branch → Execute → Verify → Pull Request → Review → Merge → Version / Release Notes → Final Handoff</div>
+    <p>Use this sequence for non-trivial work. For tiny edits, Claude can compress the sequence, but it should still preserve scope, verification, and handoff.</p>
+  </section>
+
+  <section>
+    <h2>Why use a plan doc before execution</h2>
+    <p>A plan doc prevents vague requests from turning into broad edits. It gives Claude a bounded task, a definition of done, known risks, and explicit non-goals.</p>
+    <p>A useful plan doc includes the goal, non-goals, current state, assumptions, open questions, risks, implementation plan, files likely touched, verification plan, stop conditions, and follow-up work that should not be done now.</p>
+  </section>
+
+  <section>
+    <h2>How to iterate the plan doc</h2>
+    <p>Before execution, ask Claude to review the plan for missing assumptions, scope creep, unclear dependencies, risky edits, and work that should be split into separate issues.</p>
+    <pre>Review this plan before execution.
+What is missing?
+What could break?
+What is too broad?
+What depends on something else?
+What should be deferred?
+What requires approval?
+What is the smallest useful version?</pre>
+  </section>
+
+  <section>
+    <h2>Claude Web/Desktop to Claude Code handoff</h2>
+    <pre>You are Claude Code executing an approved Agent Workflow Starter task.
+Do not brainstorm. Do not expand scope. Execute the approved plan.
+
+Goal:
+[...]
+
+Approved scope:
+[...]
+
+Out of scope:
+[...]
+
+Relevant files:
+[...]
+
+Implementation plan:
+1. [...]
+2. [...]
+3. [...]
+
+Definition of Done:
+- [ ] [...]
+
+Verification:
+[...]
+
+Stop and ask if the plan is wrong, scope expands, setup/config changes need approval, or checks fail in a non-obvious way.</pre>
+  </section>
+
+  <section>
+    <h2>GitHub basics for the human</h2>
+    <table>
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td>Issue</td><td>The task definition.</td></tr>
+      <tr><td>Branch</td><td>A temporary workspace for one change.</td></tr>
+      <tr><td>Pull request</td><td>The review page for proposed changes.</td></tr>
+      <tr><td>Checks / CI</td><td>Automated verification before merge.</td></tr>
+      <tr><td>Merge</td><td>Accepting the change.</td></tr>
+      <tr><td>Release notes</td><td>A summary of what changed and why.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>SemVer and release discipline</h2>
+    <table>
+      <tr><th>Version impact</th><th>Use for</th></tr>
+      <tr><td>PATCH</td><td>Small fix.</td></tr>
+      <tr><td>MINOR</td><td>New workflow, template, check, or capability.</td></tr>
+      <tr><td>MAJOR</td><td>Breaking change to how the system is organized or used.</td></tr>
+    </table>
+    <p>Claude should propose version impact before release-type work. If the impact is unclear, Claude should stop and ask.</p>
+  </section>
+
+  <section>
+    <h2>Canonical ordering</h2>
+    <p>Canonical ordering means deciding the default sequence before execution. Use this order unless the issue says otherwise:</p>
+    <ol>
+      <li>confirm the goal</li>
+      <li>inspect current state</li>
+      <li>identify dependencies</li>
+      <li>set up required config</li>
+      <li>define the smallest useful unit</li>
+      <li>execute that unit</li>
+      <li>verify it</li>
+      <li>record follow-ups instead of expanding scope</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Setup flow</h2>
+    <div class="workflow">Audit current state → Identify dependencies → Set up minimum config → Add templates/checks only if needed → Verify setup → Start scoped work</div>
+    <p>Examples of setup include GitHub templates, Claude defaults, local scripts, dotfiles, hooks, smoke checks, repo maps, or a simple folder structure. Keep setup small and reversible.</p>
+  </section>
+
+  <section>
+    <h2>Atomic design and dependencies</h2>
+    <p>Atomic design here means breaking work into small reusable units before building larger workflows. A source note, claim, section, prompt, template, checklist item, lesson step, hook, smoke check, or release note can all be an atom.</p>
+    <p>Build from atoms to larger parts: atoms become sections, sections become guides, guides become workflows, workflows become releases. Claude should identify dependencies before editing.</p>
+  </section>
+
+  <section>
+    <h2>Setup/config: dotfiles</h2>
+    <p>Dotfiles are setup/config. They are portable defaults that make the working environment predictable: shell config, Git config, editor defaults, Claude defaults, scripts, aliases, hooks, and local automation.</p>
+    <p>Treat dotfiles as setup work. Claude may help set them up after approval. Do not turn dotfiles into research notes, tutorials, content, or a second operating system.</p>
+  </section>
+
+  <section>
+    <h2>Hooks</h2>
+    <p>Hooks are local scripts that run automatically during Git actions. They can prevent predictable mistakes, such as skipping checks or working on the wrong branch. Claude must ask before adding or changing hooks.</p>
+  </section>
+
+  <section>
+    <h2>CI, lint, and smoke</h2>
+    <table>
+      <tr><th>Check</th><th>Meaning</th></tr>
+      <tr><td>CI</td><td>Automated GitHub checks that run before changes merge.</td></tr>
+      <tr><td>Lint</td><td>Fast check for basic repo quality problems.</td></tr>
+      <tr><td>Smoke</td><td>Small check that key docs and sections still exist after edits.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Dotdog</h2>
+    <p>Dotdog can provide repo mapping and lightweight validation when the repo grows. Humans do not need to operate Dotdog during normal use. Claude Code can use it when appropriate.</p>
+  </section>
+
+  <section>
+    <h2>Advanced tools flow</h2>
+    <div class="workflow">Repeated friction → Tool proposal → Dependency check → Smallest useful setup → Verification → Documentation → Follow-up issue if more is needed</div>
+    <p>Advanced tools are still relevant even when the human is not doing hard programming. Add them when they remove repeated friction or make agent work safer.</p>
+  </section>
+
+  <section>
+    <h2>Token efficiency and preventing drift</h2>
+    <p>Give Claude the issue, plan doc, and relevant files. Ask for diffs or summaries instead of full file dumps. Define non-goals, stop conditions, and follow-up issues before execution.</p>
+  </section>
+
+  <section>
+    <h2>Approval rules</h2>
+    <p>Claude should ask before changing dotfiles, hooks, GitHub workflows, publishing settings, account-level settings, dependencies, release rules, or broad system instructions.</p>
+  </section>
+
+  <section>
+    <h2>Final handoff back from Claude Code</h2>
+    <pre>Done:
+Changed:
+Checks:
+Pull request:
+Needs review:
+Follow-ups:</pre>
+  </section>
+
+  <section>
+    <h2>What the human reviews</h2>
+    <p>Review scope, accuracy, unintended changes, failed checks, publishing impact, setup/config changes, and follow-up work that should stay separate.</p>
+  </section>
+</body>
+</html>

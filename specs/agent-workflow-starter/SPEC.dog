@@ -1,0 +1,23 @@
+# Agent Workflow Starter Spec
+
+Agent Workflow Starter is a public starter repo for agent-assisted knowledge work.
+
+## Purpose
+
+Help a user plan, organize, execute, verify, and review work with Claude, Claude Code, GitHub, templates, checks, and lightweight workflow rules.
+
+## Canonical order
+
+Goal, current state, dependencies, setup/config, smallest useful unit, execution, verification, follow-ups.
+
+## Atomic units
+
+Atoms can be source notes, claims, sections, prompts, templates, checklist items, lesson steps, hooks, smoke checks, release notes, or small scripts.
+
+## Setup/config
+
+Dotfiles and hooks are setup/config. They require approval before changes.
+
+## Advanced tools
+
+Advanced tools are added only when repeated friction is clear and the result remains reviewable.
