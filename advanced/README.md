@@ -1,13 +1,13 @@
 # Advanced Modules
 
-Advanced modules are optional. Use them only when repeated friction justifies the added tool, rule, or workflow.
+Use advanced modules when the same problem keeps returning and a tool, rule, or workflow would prevent it.
 
-Do not read this folder as a required curriculum. Start with the human guide, CLAUDE.md, agent-ops.md, templates, and checks.
+Start with the human guide, CLAUDE.md, agent-ops.md, templates, and checks. Open this folder for a specific tool or rule.
 
 ## Use this order
 
 ```text
-1. Confirm the repeated friction.
+1. Confirm the repeated problem.
 2. Write a short implementation plan.
 3. Check approval gates.
 4. Add the smallest useful setup.

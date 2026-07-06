@@ -293,7 +293,7 @@
       <div class="toc">
         <a href="#part-1">Part 1: Basics<span>Intent, judgment, context, tokens, and handoffs.</span></a>
         <a href="#part-2">Part 2: Next steps<span>GitHub, implementation plans, checks, scripts, and local search.</span></a>
-        <a href="#part-3">Part 3: Advanced<span>Optional modules when repeated friction justifies more structure.</span></a>
+        <a href="#part-3">Part 3: Advanced<span>Tools for repeated problems: search, scripts, hooks, worktrees, hosting.</span></a>
       </div>
       <div class="callout">Do Part 1 first. Add Part 2 when the workflow is useful. Use Part 3 only when a repeated problem needs a stronger tool or rule.</div>
     </section>
@@ -306,7 +306,7 @@
         <tr><td>Learn the workflow</td><td>Read this guide from Part 1 to Part 2.</td></tr>
         <tr><td>Set up the repo</td><td>Use <code>bootstrap/bootstrap.md</code>, <code>CLAUDE.md</code>, and <code>agent-ops.md</code>.</td></tr>
         <tr><td>Run a task</td><td>Use the issue template, implementation plan, PR template, checks, and handoff.</td></tr>
-        <tr><td>Go deeper</td><td>Use <code>advanced/README.md</code> and only open the module that matches the friction.</td></tr>
+        <tr><td>Go deeper</td><td>Open <code>advanced/README.md</code>, choose one module, and follow its commands.</td></tr>
       </table>
     </section>
 
@@ -341,7 +341,7 @@
     <section>
       <p class="kicker">Repo shape</p>
       <h2>Repo map</h2>
-      <p>The repo is shallow on purpose. Keep the main path obvious and put optional depth behind <code>advanced/README.md</code>.</p>
+      <p>Use the root files for daily work. Open <code>advanced/README.md</code> only when a repeated problem needs a tool or rule.</p>
       <table>
         <tr><th>Path</th><th>Purpose</th></tr>
         <tr><td><code>README.md</code></td><td>Landing page and table of contents.</td></tr>
@@ -563,15 +563,15 @@ npm run kb:search -- "handoff"</pre>
 
     <section id="part-3">
       <h2>Part 3: Advanced</h2>
-      <p>Use this when repeated friction justifies a stronger tool, rule, or workflow. Advanced does not mean complicated. It means optional, specific, and justified.</p>
+      <p>Use this section when the same problem keeps returning and a stronger tool, rule, or workflow would prevent it.</p>
     </section>
 
     <section>
       <p class="kicker">Decision</p>
       <h2>Advanced decision rule</h2>
-      <p>Do not add an advanced tool because it sounds useful. Add it when it saves time, reduces drift, improves reviewability, or prevents a mistake that keeps repeating.</p>
+      <p>Add a tool only when it saves time, reduces drift, improves reviewability, or prevents a repeated mistake.</p>
       <pre>Use when:
-the friction repeats
+the problem repeats
 the output can be checked
 the workflow stays understandable
 the user approves any risky change
@@ -586,7 +586,7 @@ the tool hides judgment the user should keep</pre>
     <section>
       <p class="kicker">Menu</p>
       <h2>Advanced module details</h2>
-      <p>The advanced folder is a menu, not a required curriculum. Open <code>advanced/README.md</code>, then one module at a time.</p>
+      <p>Open <code>advanced/README.md</code>. Choose one module. Follow its setup, commands, checks, and rollback notes.</p>
       <table>
         <tr><th>Module</th><th>What it does</th><th>Open</th></tr>
         <tr><td>Atomic/system design</td><td>Turns repeated knowledge work into atoms, molecules, organisms, templates, and workflows with a visible feedback loop.</td><td><code>advanced/atomic-system-design.md</code></td></tr>
@@ -599,7 +599,7 @@ the tool hides judgment the user should keep</pre>
         <tr><td>Worktrees</td><td>Creates separate working directories when two branches need to be open at the same time.</td><td><code>advanced/worktrees.md</code></td></tr>
         <tr><td>Agent skills</td><td>Moves repeated agent procedures out of long prompts and into reusable instructions.</td><td><code>advanced/agent-skills.md</code></td></tr>
         <tr><td>Browser automation</td><td>Automates repeated page checks when manual browser review keeps repeating.</td><td><code>advanced/browser-automation.md</code></td></tr>
-        <tr><td>Hosting</td><td>Prepares a public guide or site for release after review and approval.</td><td><code>advanced/hosting.md</code></td></tr>
+        <tr><td>Hosting</td><td>Prepares docs or a site for release after review and approval.</td><td><code>advanced/hosting.md</code></td></tr>
       </table>
     </section>
 
@@ -636,7 +636,7 @@ Do not rely on previous chat memory.</pre>
     <section>
       <p class="kicker">Packages</p>
       <h2>Packages and named tools</h2>
-      <p>Treat named tools as software, not shorthand. A package belongs in the guide only when the repo says what it is, why it is used, how to run it, how to check it, and when not to use it.</p>
+      <p>Treat named tools as software, not shorthand. Document a package only when the repo states what it is, why it is used, how to run it, how to check it, and when not to use it.</p>
       <table>
         <tr><th>Need</th><th>Required note</th></tr>
         <tr><td>Package name</td><td>Use the real name and link or local docs when available.</td></tr>
@@ -645,7 +645,7 @@ Do not rely on previous chat memory.</pre>
         <tr><td>Check</td><td>Show how to tell whether it worked.</td></tr>
         <tr><td>Approval gate</td><td>Ask before adding dependencies, hooks, paid services, credentials, or publishing.</td></tr>
       </table>
-      <p>If a name is not documented as a package, do not define it as a mode in the public guide.</p>
+      <p>Do not define a package name as a mode unless the repo also documents that mode.</p>
     </section>
 
     <section>

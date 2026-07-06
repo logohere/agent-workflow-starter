@@ -4,7 +4,7 @@ Hosting is optional. Do not publish because the files exist. Publish only when t
 
 ## Use when
 
-- A guide, site, or teaching resource is ready for readers.
+- Docs, a site, or a teaching resource is ready for readers.
 - The user has approved public release.
 - The repo has a repeatable build/check command.
 

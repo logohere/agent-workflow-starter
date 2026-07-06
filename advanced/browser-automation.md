@@ -18,7 +18,7 @@ Browser automation is optional. Use it only when repeated webpage checks justify
 
 ## Setup
 
-Prefer the smallest useful tool. Start with a documented manual checklist. Add automation only after repeated friction.
+Prefer the smallest useful tool. Start with a documented manual checklist. Add automation only after the same check repeats.
 
 ## Example checks
 
