@@ -5,16 +5,200 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Agent Workflow Starter User Guide</title>
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, sans-serif; line-height: 1.55; max-width: 920px; margin: 40px auto; padding: 0 20px; color: #1f2937; }
-    h1, h2, h3 { line-height: 1.2; color: #111827; }
-    .subtitle, .lede { color: #4b5563; font-size: 1.08rem; }
-    code, pre { background: #f3f4f6; border-radius: 6px; }
-    pre { padding: 14px; overflow-x: auto; }
-    code { padding: 1px 4px; }
-    section { border-top: 1px solid #e5e7eb; padding-top: 24px; margin-top: 28px; }
-    table { border-collapse: collapse; width: 100%; margin: 12px 0; }
-    th, td { border: 1px solid #e5e7eb; padding: 8px; text-align: left; vertical-align: top; }
-    .workflow { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; font-weight: 600; }
+    :root {
+      --bg: #f7f3ec;
+      --paper: #fffdf8;
+      --ink: #161616;
+      --muted: #5f5a50;
+      --line: #ded6c8;
+      --soft: #f0e8dc;
+      --accent: #9a5b2e;
+      --accent-dark: #5f351e;
+      --code: #201a16;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(154, 91, 46, 0.14), transparent 34rem),
+        linear-gradient(180deg, #fbf7ef 0%, var(--bg) 100%);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(22, 22, 22, 0.025) 1px, transparent 1px);
+      background-size: 100% 32px;
+    }
+
+    header, section {
+      width: min(920px, calc(100% - 40px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header {
+      padding: 72px 0 34px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    header::before {
+      content: "Lean agent workflow guide";
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.74);
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { line-height: 1.08; color: var(--ink); }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5.2rem);
+      letter-spacing: -0.065em;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      letter-spacing: -0.04em;
+    }
+
+    p { margin: 0 0 14px; max-width: 72ch; }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+
+    section {
+      position: relative;
+      margin-top: 18px;
+      padding: 26px 28px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 253, 248, 0.72);
+      box-shadow: 0 18px 50px rgba(48, 36, 22, 0.055);
+    }
+
+    section:first-of-type { margin-top: 28px; }
+    section:last-of-type { margin-bottom: 72px; }
+
+    section[id^="part-"] {
+      margin-top: 42px;
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+      box-shadow: none;
+    }
+
+    section[id^="part-"] h2,
+    section[id^="part-"] p { color: var(--paper); }
+
+    section[id^="part-"] p { opacity: 0.82; }
+
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-size: 0.93em;
+    }
+
+    pre {
+      margin: 16px 0 0;
+      padding: 16px 18px;
+      overflow-x: auto;
+      border-radius: 14px;
+      background: var(--code);
+      color: #fff6e9;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    table {
+      width: 100%;
+      margin: 16px 0 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper);
+    }
+
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    td:first-child { width: 28%; font-weight: 700; }
+
+    ul { margin: 10px 0 0; padding-left: 20px; }
+    li { margin: 7px 0; }
+
+    .workflow {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .rule {
+      border-left: 5px solid var(--accent);
+    }
+
+    @media (max-width: 700px) {
+      header, section { width: min(100% - 28px, 920px); }
+      header { padding-top: 46px; }
+      section { padding: 22px 18px; border-radius: 14px; }
+      td:first-child { width: auto; }
+      table, tbody, tr, th, td { display: block; }
+      th { display: none; }
+      td { border-bottom: 0; padding: 10px 12px; }
+      tr { border-bottom: 1px solid var(--line); }
+      tr:last-child { border-bottom: 0; }
+      td:first-child { padding-bottom: 0; }
+    }
   </style>
 </head>
 <body>
@@ -29,7 +213,7 @@
     <div class="workflow">Part 1: Basics → Part 2: Next steps → Part 3: Advanced</div>
   </section>
 
-  <section>
+  <section id="part-1">
     <h2>Part 1: Basics</h2>
     <p>Start here. This part is enough for most writing, teaching, research, guide, and documentation work.</p>
   </section>
@@ -48,10 +232,6 @@
     <p>Use AI for motion. Use human judgment for direction.</p>
   </section>
 
-  <section>
-    <h2>Reader assumption</h2>
-    <p>This guide assumes the user can think, write, teach, and judge the work. It focuses on workflow mechanics: scope, context, files, GitHub, checks, local search, and handoffs.</p>
-  </section>
 
   <section>
     <h2>The basic model</h2>
@@ -105,7 +285,7 @@ Open questions:</pre>
     <p>Write the handoff, open a clean session, point it at the repo and the current issue or pull request, and continue from durable files.</p>
   </section>
 
-  <section>
+  <section id="part-2">
     <h2>Part 2: Next steps</h2>
     <p>Add this after the basics are working. This part makes work easier to review, repeat, and restart.</p>
   </section>
@@ -156,7 +336,7 @@ npm run kb:rebuild
 npm run kb:search -- "handoff"</pre>
   </section>
 
-  <section>
+  <section id="part-3">
     <h2>Part 3: Advanced</h2>
     <p>Use this only when repeated friction justifies it. Do not install or enable advanced tools because they sound useful.</p>
   </section>
@@ -191,7 +371,7 @@ Needs review:
 Follow-ups:</pre>
   </section>
 
-  <section>
+  <section class="rule">
     <h2>The rule</h2>
     <p>Start simple. Add complexity only when it saves time, reduces drift, or improves reviewability.</p>
   </section>
