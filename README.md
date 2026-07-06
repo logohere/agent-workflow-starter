@@ -70,9 +70,9 @@ AI is useful, but not wise.
 
 Treat it like a fast, forgetful assistant. It can draft, organize, search, compare, summarize, and keep work moving. It can also misunderstand the goal, lose the thread, invent facts, agree too easily, or build out of order.
 
-Do not let it carry judgment. Give it clear goals, small tasks, real files, and checkable outputs. Make it show what changed, what it used, what it assumes, and what still needs review.
+Do not let it carry intent or judgment. Give it clear goals, small tasks, real files, and checkable outputs. Make it show what changed, what it used, what it assumes, and what still needs review.
 
-Use AI for motion. Use human judgment for direction.
+Use AI for motion. Use human intent for direction and human judgment for standards. When AI makes a decision, ask why: what evidence supports it, what tradeoff it accepted, and what assumption would change the answer.
 
 ## Context Hygiene
 
