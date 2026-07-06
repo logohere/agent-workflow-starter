@@ -9,10 +9,10 @@ labels: []
 
 ## Non-goals
 
-## Relevant files
+## Todos
 
 ## Definition of Done
 
-## Verification
+## Checks
 
 ## Follow-ups

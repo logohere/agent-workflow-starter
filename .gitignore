@@ -4,3 +4,8 @@ node_modules/
 .env.*
 dist/
 coverage/
+.local/
+data/local/
+*.db
+*.db-shm
+*.db-wal

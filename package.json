@@ -1,15 +1,21 @@
 {
   "name": "agent-workflow-starter",
   "version": "0.1.0",
-  "description": "Public starter repo for agent-assisted knowledge work",
+  "description": "Public starter repo for lean AI-assisted knowledge work",
   "type": "module",
   "license": "MIT",
   "scripts": {
     "lint": "node scripts/lint.mjs",
+    "test": "node scripts/test.mjs",
     "smoke": "node scripts/smoke.mjs",
     "validate": "node scripts/validate.mjs",
     "doctor": "node scripts/doctor.mjs",
     "map": "node scripts/map.mjs",
-    "tokens": "node scripts/tokens.mjs"
+    "tokens": "node scripts/tokens.mjs",
+    "setup:macos": "bash scripts/macos_setup.sh",
+    "setup:macos:install": "bash scripts/macos_setup.sh --install",
+    "kb:init": "python3 scripts/local_kb.py init",
+    "kb:rebuild": "python3 scripts/local_kb.py rebuild",
+    "kb:search": "python3 scripts/local_kb.py search"
   }
 }

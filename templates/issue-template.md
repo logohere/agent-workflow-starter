@@ -1,8 +1,13 @@
 # Task Template
 
 Goal:
+
 Non-goals:
-Dependencies:
-Done:
+
+Todos:
+
+Definition of Done:
+
 Checks:
+
 Follow-ups:
