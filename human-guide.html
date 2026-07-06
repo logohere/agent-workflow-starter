@@ -207,8 +207,20 @@
 
   <section>
     <h2>How to use this guide</h2>
-    <p>Use it in three passes. Do Part 1 first. Add Part 2 when the basic workflow is useful. Treat Part 3 as optional.</p>
+    <p>Use it in three passes. Do Part 1 first. Add Part 2 when the basic workflow is useful. Treat Part 3 as optional. Use <code>advanced/README.md</code> as the map for optional modules.</p>
     <div class="workflow">Part 1: Basics → Part 2: Next steps → Part 3: Advanced</div>
+  </section>
+
+  <section>
+    <h2>Guide map</h2>
+    <p>This page is the tutorial path. The repo files provide the how-to steps, reference material, and explanations.</p>
+    <table>
+      <tr><th>User need</th><th>Use this</th></tr>
+      <tr><td>Learn the workflow</td><td>Read this guide from Part 1 to Part 2.</td></tr>
+      <tr><td>Set up the repo</td><td>Use <code>bootstrap/bootstrap.md</code>, <code>CLAUDE.md</code>, and <code>agent-ops.md</code>.</td></tr>
+      <tr><td>Run a task</td><td>Use the issue template, implementation plan, PR template, checks, and handoff.</td></tr>
+      <tr><td>Go deeper</td><td>Use <code>advanced/README.md</code> and only open the module that matches the friction.</td></tr>
+    </table>
   </section>
 
   <section id="part-1">
@@ -231,6 +243,22 @@
       <tr><td>Claude Web/Desktop</td><td>Goal shaping, plan docs, risk review, task splitting, and handoff prompts.</td></tr>
       <tr><td>Claude Code</td><td>Repo inspection, setup, file edits, checks, branches, pull requests, scripts, and handoffs.</td></tr>
       <tr><td>Local files</td><td>Durable context, reusable templates, project docs, decisions, notes, and handoffs.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Repo map</h2>
+    <p>The repo is shallow on purpose. Keep the main path obvious and put optional depth behind <code>advanced/README.md</code>.</p>
+    <table>
+      <tr><th>Path</th><th>Purpose</th></tr>
+      <tr><td><code>README.md</code></td><td>Landing page and table of contents.</td></tr>
+      <tr><td><code>human-guide.html</code></td><td>Polished user tutorial.</td></tr>
+      <tr><td><code>CLAUDE.md</code></td><td>Concise Claude Code instructions.</td></tr>
+      <tr><td><code>agent-ops.md</code></td><td>Canonical agent implementation plan.</td></tr>
+      <tr><td><code>.github/</code></td><td>Issue template, PR template, and CI.</td></tr>
+      <tr><td><code>templates/</code></td><td>Reusable task, PR, handoff, and project-doc shapes.</td></tr>
+      <tr><td><code>scripts/</code></td><td>Small local checks and utilities.</td></tr>
+      <tr><td><code>advanced/</code></td><td>Optional modules for repeated friction.</td></tr>
     </table>
   </section>
 
@@ -415,13 +443,14 @@ npm run kb:search -- "handoff"</pre>
 
   <section id="part-3">
     <h2>Part 3: Advanced</h2>
-    <p>Use this only when repeated friction justifies it. Do not install or enable advanced tools because they sound useful.</p>
+    <p>Use this only when repeated friction justifies it. Start with <code>advanced/README.md</code>, then open one module at a time. Do not install or enable advanced tools because they sound useful.</p>
   </section>
 
   <section>
     <h2>Advanced options</h2>
     <table>
       <tr><th>Option</th><th>Use when</th></tr>
+      <tr><td>Advanced module index</td><td>You need to choose the right optional module without reading every file.</td></tr>
       <tr><td>Dotdog</td><td>Repo mapping or lightweight validation makes review easier.</td></tr>
       <tr><td>Small scripts</td><td>Repeated chores need a discrete local tool.</td></tr>
       <tr><td>Hooks</td><td>You need automatic local guardrails before commits or pushes.</td></tr>
