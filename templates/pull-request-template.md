@@ -3,6 +3,7 @@
 ## Checks
 
 - [ ] lint
+- [ ] test
 - [ ] smoke
 - [ ] validate
 - [ ] doctor

@@ -49,12 +49,23 @@ Use this order unless the issue says otherwise:
 2. Read the request, issue, or handoff.
 3. Inspect relevant files only.
 4. State goal, non-goals, dependencies, and approval gates.
-5. Define the smallest useful change.
-6. Make the change.
-7. Run relevant checks.
-8. Summarize the diff.
-9. Record follow-ups instead of expanding scope.
-10. Prepare PR or final handoff.
+5. Write a short implementation plan.
+6. Define the smallest useful change.
+7. Make the change.
+8. Run relevant checks.
+9. Summarize the diff.
+10. Record follow-ups instead of expanding scope.
+11. Prepare PR or final handoff.
+```
+
+## Implementation plan
+
+```text
+Implementation plan is short.
+It names the files likely touched.
+It lists the steps in order.
+It names checks to run.
+It separates follow-ups from current work.
 ```
 
 ## Definition of Done

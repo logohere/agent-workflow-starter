@@ -313,12 +313,44 @@ End with a setup report: what exists, what changed, checks run, what I should re
     <h2>GitHub keeps work reviewable</h2>
     <table>
       <tr><th>Term</th><th>Meaning</th></tr>
-      <tr><td>Issue</td><td>The task definition.</td></tr>
+      <tr><td>Issue</td><td>The task definition: goal, non-goals, implementation plan, todos, definition of done, checks, and follow-ups.</td></tr>
       <tr><td>Branch</td><td>A temporary workspace for one change.</td></tr>
       <tr><td>Pull request</td><td>The review page for proposed changes.</td></tr>
-      <tr><td>Checks</td><td>Automated verification before merge.</td></tr>
+      <tr><td>PR template</td><td>The standard review checklist: summary, checks, review notes, and follow-ups.</td></tr>
+      <tr><td>Issue template</td><td>The standard planning shape before work starts.</td></tr>
+      <tr><td>CI</td><td>Automated checks that run on pull requests and pushes to main.</td></tr>
       <tr><td>Merge</td><td>Accepting the change.</td></tr>
       <tr><td>Handoff</td><td>The durable summary that lets the next session continue cleanly.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Canonical ordering</h2>
+    <p>Use the same order until there is a reason not to. This keeps the agent from jumping into edits before the foundation is clear.</p>
+    <div class="workflow">Goal → Inspect → Implementation Plan → Issue → Branch → Execute → Verify → Pull Request → Review → Merge → Handoff</div>
+  </section>
+
+  <section>
+    <h2>Implementation plans</h2>
+    <p>An implementation plan is not a long strategy document. It is the short bridge between intent and execution.</p>
+    <pre>Goal:
+Non-goals:
+Files likely touched:
+Steps:
+Checks:
+Definition of Done:
+Follow-ups not included:</pre>
+    <p>Make the agent write this before meaningful edits. Then question the plan before it executes.</p>
+  </section>
+
+  <section>
+    <h2>CI and templates</h2>
+    <p>This repo includes GitHub issue and pull request templates plus a small CI workflow. They are not decoration. They keep tasks scoped and make changes reviewable.</p>
+    <table>
+      <tr><th>File</th><th>Purpose</th></tr>
+      <tr><td>.github/ISSUE_TEMPLATE/agent-workflow-task.md</td><td>Creates scoped issues with goal, implementation plan, todos, definition of done, checks, and follow-ups.</td></tr>
+      <tr><td>.github/PULL_REQUEST_TEMPLATE.md</td><td>Creates PRs with summary, checks, review notes, and follow-ups.</td></tr>
+      <tr><td>.github/workflows/ci.yml</td><td>Runs lint, test, smoke, validate, and doctor checks.</td></tr>
     </table>
   </section>
 

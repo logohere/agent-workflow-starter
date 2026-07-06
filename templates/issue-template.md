@@ -4,6 +4,8 @@ Goal:
 
 Non-goals:
 
+Implementation Plan:
+
 Todos:
 
 Definition of Done:

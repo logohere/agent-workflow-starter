@@ -59,7 +59,7 @@ End with a setup report: what exists, what changed, checks run, what I should re
 ## Core Workflow
 
 ```text
-Goal → Inspect → Plan → Issue → Handoff → Branch → Execute → Verify → Pull Request → Review → Merge → Final Handoff
+Goal → Inspect → Implementation Plan → Issue → Handoff → Branch → Execute → Verify → Pull Request → Review → Merge → Final Handoff
 ```
 
 Use Claude Web/Desktop for goal shaping and planning. Use Claude Code for repo execution. Use GitHub for review, history, checks, and merge decisions.
@@ -147,6 +147,10 @@ npm run validate
 ```
 
 Generated maps are indexes. Source files remain truth.
+
+## GitHub templates and CI
+
+The repo includes issue and pull request templates plus a small CI workflow. Issues should capture goal, non-goals, implementation plan, todos, definition of done, checks, and follow-ups. Pull requests should capture summary, checks, review notes, and follow-ups. CI runs lint, test, smoke, validate, and doctor.
 
 ## Checks
 

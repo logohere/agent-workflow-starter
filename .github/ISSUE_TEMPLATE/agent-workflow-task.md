@@ -9,6 +9,8 @@ labels: []
 
 ## Non-goals
 
+## Implementation Plan
+
 ## Todos
 
 ## Definition of Done
