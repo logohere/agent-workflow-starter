@@ -183,9 +183,7 @@
       letter-spacing: -0.01em;
     }
 
-    .rule {
-      border-left: 5px solid var(--accent);
-    }
+    .rule { border-left: 5px solid var(--accent); }
 
     @media (max-width: 700px) {
       header, section { width: min(100% - 28px, 920px); }
@@ -204,7 +202,7 @@
 <body>
   <header>
     <h1>Agent Workflow Starter User Guide</h1>
-    <p class="subtitle">A lean public guide for using Claude/Claude Code by default, or similar file-editing agents, to turn clear goals into reviewable writing, teaching, research, guides, docs, and lightweight project artifacts.</p>
+    <p class="subtitle">A lean public guide for using Claude/Claude Code by default, or similar file-editing agents, to turn clear goals into reviewable writing, teaching, research, guides, docs, scripts, and lightweight project artifacts.</p>
   </header>
 
   <section>
@@ -219,26 +217,19 @@
   </section>
 
   <section>
-    <h2>What this is</h2>
-    <p>Agent Workflow Starter is a small operating layer for serious work with AI. It does not replace intent or judgment. It helps preserve context, reduce repeated chores, keep projects moving, and turn ideas into durable files that can be reviewed.</p>
-    <p>Use it when you already know the work you want to do and need a cleaner operating layer around the agent. The source of truth should be files, issues, pull requests, checks, and handoffs.</p>
+    <h2>The core rule</h2>
+    <p>AI is useful, but not wise. Treat it like a fast, forgetful assistant: good at motion, bad at owning direction.</p>
+    <p>The human supplies intent, judgment, and standards. The agent drafts, organizes, searches, compares, checks, and keeps work moving.</p>
+    <p>Do not let the agent carry the goal. Give it small tasks, real files, and checkable outputs. Make it show what changed, what it used, what it assumes, and what still needs review.</p>
+    <p>The source of truth is not the chat. It is files, issues, pull requests, checks, and handoffs.</p>
   </section>
-
-  <section>
-    <h2>The stance</h2>
-    <p>AI is useful, but not wise.</p>
-    <p>Treat it like a fast, forgetful assistant. It can draft, organize, search, compare, summarize, and keep work moving. It can also misunderstand the goal, lose the thread, invent facts, agree too easily, or build out of order.</p>
-    <p>Do not let it carry intent or judgment. Give it clear goals, small tasks, real files, and checkable outputs. Make it show what changed, what it used, what it assumes, and what still needs review.</p>
-    <p>Use AI for motion. Use human intent for direction and human judgment for standards.</p>
-  </section>
-
 
   <section>
     <h2>The basic model</h2>
     <table>
       <tr><th>Surface</th><th>Use it for</th></tr>
       <tr><td>Claude Web/Desktop</td><td>Goal shaping, plan docs, risk review, task splitting, and handoff prompts.</td></tr>
-      <tr><td>Claude Code</td><td>Repo inspection, setup, file edits, checks, branches, pull requests, and handoffs.</td></tr>
+      <tr><td>Claude Code</td><td>Repo inspection, setup, file edits, checks, branches, pull requests, scripts, and handoffs.</td></tr>
       <tr><td>Local files</td><td>Durable context, reusable templates, project docs, decisions, notes, and handoffs.</td></tr>
     </table>
   </section>
@@ -254,7 +245,7 @@ End with what changed, what needs review, and what should happen next.</pre>
 
   <section>
     <h2>Use AI without outsourcing intent or judgment</h2>
-    <p>Ask the agent to do bounded work: inspect, compare, outline, draft, edit, test, search, summarize, or prepare a pull request. Do not ask it to decide what matters without giving it standards.</p>
+    <p>Ask the agent to do bounded work: inspect, compare, outline, draft, edit, test, search, summarize, write a small script, or prepare a pull request. Do not ask it to decide what matters without giving it standards.</p>
     <p>Good agent outputs are checkable. They name files touched, commands run, assumptions made, sources used, and review points.</p>
     <p>When the agent makes a decision, question it. Ask why that choice was made, what evidence supports it, what tradeoff it accepted, and what assumption would change the answer.</p>
   </section>
@@ -272,6 +263,18 @@ Checks passing/failing:
 Next action:
 Open questions:</pre>
     <p>A new session should start from files, issues, pull requests, checks, and handoffs, not vague chat memory.</p>
+  </section>
+
+  <section>
+    <h2>Token optimization</h2>
+    <p>Tokens are working memory. Do not spend them on whole files, stale chats, or repeated background when a focused source will do.</p>
+    <p>Ask the agent to search first, read only relevant files or sections, use diffs instead of full rewrites, and summarize what matters before editing.</p>
+    <pre>Search first.
+Read only relevant files.
+Prefer diffs over full dumps.
+Use handoffs instead of long chat history.
+Use local SQLite search when repeated lookup wastes context.
+Keep source files as truth.</pre>
   </section>
 
   <section>
@@ -331,6 +334,21 @@ End with a setup report: what exists, what changed, checks run, what I should re
   </section>
 
   <section>
+    <h2>Atomic and system-driven work</h2>
+    <p>Build from small parts before asking the agent to build the whole thing.</p>
+    <table>
+      <tr><th>Layer</th><th>Examples</th></tr>
+      <tr><td>Atom</td><td>Note, claim, citation, prompt line, checklist item, command, function, smoke check, handoff field.</td></tr>
+      <tr><td>Molecule</td><td>Task prompt, issue template, PR checklist, section outline, small script, verification block.</td></tr>
+      <tr><td>Organism</td><td>Human-guide section, agent workflow, local setup flow, CI check group, knowledge-search flow.</td></tr>
+      <tr><td>Template</td><td>Issue template, PR template, implementation-plan template, lesson template, guide template.</td></tr>
+      <tr><td>Page / Workflow</td><td>Finished guide, teaching module, repo setup flow, writing workflow, local knowledge workflow.</td></tr>
+    </table>
+    <p>System-driven design keeps the loop visible: inputs, rules, actions, checks, handoff, next loop.</p>
+    <div class="workflow">Input → Rule → Action → Check → Handoff → Next loop</div>
+  </section>
+
+  <section>
     <h2>Implementation plans</h2>
     <p>An implementation plan is not a long strategy document. It is the short bridge between intent and execution.</p>
     <pre>Goal:
@@ -341,6 +359,32 @@ Checks:
 Definition of Done:
 Follow-ups not included:</pre>
     <p>Make the agent write this before meaningful edits. Then question the plan before it executes.</p>
+  </section>
+
+  <section>
+    <h2>Plan review prompt</h2>
+    <p>Before the agent executes a meaningful plan, make it challenge the plan.</p>
+    <pre>Review this plan before execution.
+What is missing?
+What could break?
+What assumptions might be wrong?
+What is too broad?
+What depends on something else?
+What should be deferred?
+What needs approval?
+What is the smallest useful version?</pre>
+  </section>
+
+  <section>
+    <h2>Small scripts and mini apps</h2>
+    <p>AI is useful for building small local tools that remove repeated chores. A discrete Python, Go, or Rust script can save more time than another prompt.</p>
+    <p>Use Python first for quick local automation. Use Go for portable CLI tools. Use Rust only when speed, safety, or single-binary discipline matters.</p>
+    <pre>Use when a task repeats.
+Keep it local-first.
+Give it one job.
+Add one command to run it.
+Add one check or smoke test.
+Document the input, output, and rollback.</pre>
   </section>
 
   <section>
@@ -379,9 +423,12 @@ npm run kb:search -- "handoff"</pre>
     <table>
       <tr><th>Option</th><th>Use when</th></tr>
       <tr><td>Dotdog</td><td>Repo mapping or lightweight validation makes review easier.</td></tr>
+      <tr><td>Small scripts</td><td>Repeated chores need a discrete local tool.</td></tr>
       <tr><td>Hooks</td><td>You need automatic local guardrails before commits or pushes.</td></tr>
       <tr><td>Worktrees</td><td>You need multiple isolated branches open at once.</td></tr>
       <tr><td>Agent skills</td><td>A repeated workflow should load on demand.</td></tr>
+      <tr><td>Working vocabulary</td><td>Repeated shorthand like caveman or ponytail needs a file-backed definition.</td></tr>
+      <tr><td>Token optimization</td><td>Repeated context waste needs search, diffs, handoffs, or local indexing.</td></tr>
       <tr><td>Browser automation</td><td>Repeated webpage checks justify automation.</td></tr>
       <tr><td>Hosting</td><td>Something is ready to publish.</td></tr>
       <tr><td>Vector search</td><td>FTS5 keyword search is no longer enough.</td></tr>

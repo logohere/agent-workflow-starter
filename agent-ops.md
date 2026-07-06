@@ -4,7 +4,7 @@ Canonical implementation plan for agents working in this public repo.
 
 ## Goal
 
-Turn writing, research, teaching, guide, documentation, and lightweight project goals into scoped, reviewable, reusable work.
+Turn writing, research, teaching, guide, documentation, scripts, mini apps, and lightweight project goals into scoped, reviewable, reusable work.
 
 Keep the repo lean. Keep public docs public-safe. Use Claude/Claude Code by default, but keep the workflow general for any file-editing agent that can inspect files, edit files, run checks, and use GitHub.
 
@@ -50,12 +50,28 @@ Use this order unless the issue says otherwise:
 3. Inspect relevant files only.
 4. State goal, non-goals, dependencies, and approval gates.
 5. Write a short implementation plan.
-6. Define the smallest useful change.
-7. Make the change.
-8. Run relevant checks.
-9. Summarize the diff.
-10. Record follow-ups instead of expanding scope.
-11. Prepare PR or final handoff.
+6. Review the plan for missing pieces and risks.
+7. Define the smallest useful change.
+8. Make the change.
+9. Run relevant checks.
+10. Summarize the diff.
+11. Record follow-ups instead of expanding scope.
+12. Prepare PR or final handoff.
+```
+
+## Plan review
+
+Before executing meaningful work, answer:
+
+```text
+What is missing?
+What could break?
+What assumptions might be wrong?
+What is too broad?
+What depends on something else?
+What should be deferred?
+What needs approval?
+What is the smallest useful version?
 ```
 
 ## Implementation plan
@@ -66,6 +82,66 @@ It names the files likely touched.
 It lists the steps in order.
 It names checks to run.
 It separates follow-ups from current work.
+```
+
+## Atomic and system-driven work
+
+Use the proper atomic ladder for reusable knowledge and workflow design:
+
+```text
+Atom → Molecule → Organism → Template → Page / Workflow
+```
+
+```text
+Atom: note, claim, citation, prompt line, checklist item, command, function, smoke check, handoff field.
+Molecule: task prompt, issue template, PR checklist, section outline, small script, verification block.
+Organism: guide section, local setup flow, CI check group, knowledge-search flow, handoff process.
+Template: issue template, PR template, implementation-plan template, lesson template, guide template.
+Page / Workflow: finished guide, teaching module, repo setup flow, writing workflow, local knowledge workflow.
+```
+
+System-driven design means the loop is visible:
+
+```text
+Input → Rule → Action → Check → Handoff → Next loop
+```
+
+Improve the system only when the work repeats, the current path causes drift, or a check would prevent predictable mistakes.
+
+## Small scripts and mini apps
+
+AI can build small tools quickly. Use that for repeated chores, not for speculative architecture.
+
+```text
+Python: quick local scripts and file/text automation.
+Go: portable CLI tools and small binaries.
+Rust: speed, safety, or single-binary discipline when justified.
+```
+
+Rules:
+
+```text
+one job
+local-first
+no framework unless needed
+clear input and output
+one command to run it
+one smoke check or test
+documented rollback
+```
+
+Examples: rename files, clean notes, ingest docs into SQLite, search handoffs, generate checklists, convert notes into Markdown sections, validate repo structure.
+
+## Token optimization
+
+```text
+search before reading
+read only relevant files or sections
+prefer diffs over full dumps
+summarize before editing
+use handoffs instead of long chat carryover
+use local SQLite search when repeated lookup wastes context
+keep source files as truth
 ```
 
 ## Definition of Done

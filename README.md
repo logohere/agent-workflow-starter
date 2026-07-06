@@ -1,8 +1,8 @@
 # Agent Workflow Starter
 
-Public starter repo for lean AI-assisted writing, teaching, guides, research, documentation, and lightweight project execution. Claude/Claude Code is the default stack, but the workflow stays general enough for other file-editing agents.
+Public starter repo for lean AI-assisted writing, teaching, guides, research, documentation, scripts, mini apps, and lightweight project execution. Claude/Claude Code is the default stack, but the workflow stays general enough for other file-editing agents.
 
-Agent Workflow Starter helps turn clear goals into scoped, reviewable artifacts with Claude, Claude Code, Git, GitHub, templates, checks, handoffs, and optional local knowledge search.
+Agent Workflow Starter helps turn clear goals into scoped, reviewable artifacts with Claude, Claude Code, Git, GitHub, templates, checks, handoffs, optional local knowledge search, and small local tools.
 
 It is for capable users who already know their subject and want better agent workflows without maintaining a heavy system.
 
@@ -12,11 +12,10 @@ It is for capable users who already know their subject and want better agent wor
 - `CLAUDE.md`: concise Claude Code project instructions
 - `agent-ops.md`: operating guide for agents
 - `bootstrap/bootstrap.md`: first-run setup order
+- `.github/`: issue template, pull request template, and CI
 - `templates/`: reusable issue, pull request, handoff, and project-doc templates
-- `advanced/sqlite-kb.md`: optional local SQLite knowledge setup
-- `advanced/macos.md`: optional macOS Apple Silicon setup notes
-- `advanced/dotdog.md`: optional repo mapping and lightweight validation notes
-- `advanced/`: optional modules for later tools
+- `scripts/`: local checks and utilities
+- `advanced/README.md`: optional modules index
 - `specs/agent-workflow-starter/`: lightweight system specs
 
 ## Learning Path
@@ -24,9 +23,9 @@ It is for capable users who already know their subject and want better agent wor
 Use the guide in three passes:
 
 ```text
-Part 1: Basics — goal, files, AI stance, context hygiene, handoffs
-Part 2: Next steps — GitHub workflow, checks, macOS setup, local SQLite search
-Part 3: Advanced — Dotdog, hooks, worktrees, agent skills, browser automation, hosting, vector search
+Part 1: Basics — goal, files, AI stance, context hygiene, token optimization, handoffs
+Part 2: Next steps — GitHub workflow, checks, implementation plans, small scripts, macOS setup, local SQLite search
+Part 3: Advanced — atomic design, Dotdog, hooks, worktrees, agent skills, working vocabulary, browser automation, hosting, vector search
 ```
 
 Do Part 1 first. Add Part 2 when the workflow is useful. Treat Part 3 as optional.
@@ -68,11 +67,15 @@ Use Claude Web/Desktop for goal shaping and planning. Use Claude Code for repo e
 
 AI is useful, but not wise.
 
-Treat it like a fast, forgetful assistant. It can draft, organize, search, compare, summarize, and keep work moving. It can also misunderstand the goal, lose the thread, invent facts, agree too easily, or build out of order.
+Treat it like a fast, forgetful assistant. It can draft, organize, search, compare, summarize, write small scripts, and keep work moving. It can also misunderstand the goal, lose the thread, invent facts, agree too easily, or build out of order.
 
 Do not let it carry intent or judgment. Give it clear goals, small tasks, real files, and checkable outputs. Make it show what changed, what it used, what it assumes, and what still needs review.
 
 Use AI for motion. Use human intent for direction and human judgment for standards. When AI makes a decision, ask why: what evidence supports it, what tradeoff it accepted, and what assumption would change the answer.
+
+## Token Optimization
+
+Tokens are working memory. Search first, read only relevant sections, prefer diffs over full file dumps, use handoffs instead of dragging long chats forward, and use local SQLite search when repeated lookup wastes context.
 
 ## Context Hygiene
 
@@ -103,50 +106,52 @@ Goal → Inspect current state → Dependencies → Setup/config → Smallest us
 
 This keeps Claude from mixing setup, content edits, checks, and release work in the same loose pass.
 
-## macOS Setup
+## Atomic and System-Driven Work
 
-For macOS Apple Silicon, use the setup check before installing anything:
-
-```text
-npm run setup:macos
-```
-
-It checks architecture, Xcode Command Line Tools, Homebrew, Git, ripgrep, GitHub CLI, GitHub CLI auth, Node/npm, Python 3, and Python SQLite/FTS5 support. To install missing Homebrew-managed tools after reviewing the list:
+Use the proper atomic ladder for reusable knowledge and workflow design:
 
 ```text
-npm run setup:macos:install
+Atom → Molecule → Organism → Template → Page / Workflow
 ```
 
-Xcode Command Line Tools and Homebrew may still require interactive installation.
+Atoms are notes, claims, citations, prompt lines, checklist items, commands, functions, smoke checks, and handoff fields. Molecules combine atoms into prompts, templates, outlines, small scripts, or verification blocks. Organisms are complete sections or flows. Templates make repeatable structures. Pages/workflows are finished usable artifacts or operating loops.
 
-## Local SQLite Knowledge
-
-SQLite local knowledge is optional but first-class. Use it when repeated file lookups waste context or the project needs a reusable local index.
-
-Start with FTS5 keyword search. Store local DB files under gitignored paths such as `.local/`. Add embeddings or vector search later only if keyword search stops being enough.
-
-Useful commands:
+System-driven design keeps the loop visible:
 
 ```text
-npm run kb:init
-npm run kb:rebuild
-npm run kb:search -- "handoff"
+Input → Rule → Action → Check → Handoff → Next loop
 ```
 
-On macOS Apple Silicon, prefer the default Python `sqlite3` path first. Add Node SQLite packages only when the project actually needs them.
+## Plan Review Prompt
 
-## Dotdog
-
-Dotdog is optional. Use it when repo mapping or lightweight validation makes the project easier to inspect and review. Do not make it part of the basic path.
-
-Useful commands, when available:
+Before meaningful execution, ask the agent:
 
 ```text
-npm run map
-npm run validate
+What is missing?
+What could break?
+What assumptions might be wrong?
+What is too broad?
+What depends on something else?
+What should be deferred?
+What needs approval?
+What is the smallest useful version?
 ```
 
-Generated maps are indexes. Source files remain truth.
+## Small Scripts and Mini Apps
+
+AI is good at discrete local tools that remove repeated chores. Use this when repetition appears.
+
+```text
+Python: quick local scripts and file/text automation.
+Go: portable CLI tools and small binaries.
+Rust: speed, safety, or single-binary discipline when justified.
+```
+
+Rules: one job, local-first, no framework unless needed, clear input/output, one command to run it, one smoke check or test, documented rollback.
+
+## Advanced Modules
+
+Advanced modules are optional. Use `advanced/README.md` as the map. Add one only when it saves time, reduces drift, or improves reviewability.
 
 ## GitHub templates and CI
 
