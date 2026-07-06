@@ -6,9 +6,20 @@ Agent Workflow Starter helps turn clear goals into scoped, reviewable artifacts 
 
 It is for capable users who already know their subject and want better agent workflows without maintaining a heavy system.
 
+## Project Guide
+
+The project guide is published from `index.html` through GitHub Pages. `human-guide.html` is kept as a local copy of the same guide.
+
+Default Pages URL until a custom domain is configured:
+
+```text
+https://logohere.github.io/agent-workflow-starter/
+```
+
 ## Start Here
 
-- `human-guide.html`: short human-facing guide
+- `index.html`: project GitHub Pages guide and get-started page
+- `human-guide.html`: local copy of the same guide
 - `CLAUDE.md`: concise Claude Code project instructions
 - `agent-ops.md`: operating guide for agents
 - `bootstrap/bootstrap.md`: first-run setup order
@@ -33,6 +44,7 @@ Do Part 1 first. Add Part 2 when the workflow is useful. Treat Part 3 as optiona
 ## Starter Flow
 
 ```text
+open the project Pages guide
 clone or fork the repo
 open it locally
 ask Claude Code to inspect and set up the repo
@@ -47,7 +59,7 @@ Claude Code should inspect first, prepare only needed tooling, run checks, and e
 
 ```text
 You are setting up my cloned Agent Workflow Starter repo.
-Read README.md, CLAUDE.md, human-guide.html, agent-ops.md, and bootstrap/bootstrap.md.
+Read README.md, CLAUDE.md, index.html, human-guide.html, agent-ops.md, and bootstrap/bootstrap.md.
 Inspect the current state before changing files.
 Prepare only what is needed for the repo to work locally.
 Run the relevant checks.
