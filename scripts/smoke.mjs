@@ -1,8 +1,12 @@
 import fs from "node:fs";
 
 const readme = fs.readFileSync("README.md", "utf8");
+const readmeJa = fs.readFileSync("README-ja.md", "utf8");
 const claude = fs.readFileSync("CLAUDE.md", "utf8");
 const human = fs.readFileSync("human-guide.html", "utf8");
+const humanJa = fs.readFileSync("human-guide-ja.html", "utf8");
+const index = fs.readFileSync("index.html", "utf8");
+const indexJa = fs.readFileSync("index-ja.html", "utf8");
 const agent = fs.readFileSync("agent-ops.md", "utf8");
 const bootstrap = fs.readFileSync("bootstrap/bootstrap.md", "utf8");
 const advanced = fs.readFileSync("advanced/README.md", "utf8");
@@ -15,6 +19,9 @@ const pkg = fs.readFileSync("package.json", "utf8");
 
 const checks = [
   [readme, "Public starter repo"],
+  [readme, "Japanese:"],
+  [readmeJa, "日本語ガイド"],
+  [readmeJa, "AIとの役割分担"],
   [readme, "Learning Path"],
   [readme, "Claude/Claude Code"],
   [readme, "AI Stance"],
@@ -44,6 +51,12 @@ const checks = [
   [human, "Railway"],
   [human, "Ask before risky changes"],
   [human, "End with a handoff"],
+  [human, 'href="index-ja.html"'],
+  [humanJa, "ゴールをAIに任せない"],
+  [humanJa, 'href="index.html"'],
+  [index, 'href="index-ja.html"'],
+  [indexJa, "AIエージェントを安全に使って仕事を進める"],
+  [indexJa, 'lang="ja"'],
   [agent, "Goal"],
   [agent, "Plan review"],
   [agent, "Atomic and system-driven work"],

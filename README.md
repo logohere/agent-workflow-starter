@@ -10,16 +10,22 @@ It is for capable users who already know their subject and want better agent wor
 
 The project guide is published from `index.html` through GitHub Pages. `human-guide.html` is kept as a local copy of the same guide.
 
-Default Pages URL until a custom domain is configured:
+Default Pages URLs until a custom domain is configured:
 
 ```text
-https://logohere.github.io/agent-workflow-starter/
+English:  https://logohere.github.io/agent-workflow-starter/
+Japanese: https://logohere.github.io/agent-workflow-starter/index-ja.html
 ```
+
+Japanese documentation is also available in `README-ja.md`.
 
 ## Start Here
 
-- `index.html`: project GitHub Pages guide and get-started page
-- `human-guide.html`: local copy of the same guide
+- `index.html`: English GitHub Pages guide and get-started page
+- `index-ja.html`: Japanese GitHub Pages guide and get-started page
+- `human-guide.html`: local English copy of the same guide
+- `human-guide-ja.html`: local Japanese copy of the same guide
+- `README-ja.md`: Japanese repository overview
 - `CLAUDE.md`: concise Claude Code project instructions
 - `agent-ops.md`: operating guide for agents
 - `bootstrap/bootstrap.md`: first-run setup order

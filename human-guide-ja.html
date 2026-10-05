@@ -1,0 +1,52 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Agent Workflow Starter — 日本語ガイド</title><style>
+body{margin:0;background:#f7f3ec;color:#171514;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',Meiryo,'Segoe UI',sans-serif;line-height:1.75}
+a{color:inherit}.wrap{max-width:1040px;margin:auto;padding:0 22px}nav{position:sticky;top:0;background:#f7f3ec;border-bottom:1px solid #ded6c8;z-index:10}nav .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}.brand{font-weight:800;text-decoration:none}.links{display:flex;gap:14px;flex-wrap:wrap;color:#625b52}.links a{text-decoration:none}header{padding:64px 0 36px;border-bottom:1px solid #ded6c8}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.12;letter-spacing:-.02em;max-width:820px;margin:0}h2{font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.25;margin:0 0 12px}h3{margin:0 0 8px}.lead{font-size:1.15rem;color:#625b52;max-width:760px}.button{display:inline-block;background:#171514;color:#fff7ed;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:800;margin-right:10px;margin-top:12px}.button.alt{background:transparent;color:#884c28;border:1px solid #ded6c8}section{background:#fffdf8;border:1px solid #ded6c8;border-radius:14px;padding:24px;margin:18px 0}.band{background:#171514;color:#fff7ed}.band h2,.band p{color:#fff7ed}.label{font-size:.75rem;font-weight:900;color:#884c28;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:#fffdf8;border:1px solid #ded6c8;border-radius:12px;padding:14px}.card p{color:#625b52;margin-bottom:0}pre{background:#201a16;color:#fff6e9;padding:16px;border-radius:12px;overflow:auto;white-space:pre-wrap}table{width:100%;border-collapse:collapse;background:#fffdf8}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #ded6c8;padding:11px}th{color:#884c28;background:#f0e8dc;font-size:.78rem;text-transform:uppercase}td:first-child{font-weight:800}@media(max-width:760px){nav .wrap{display:block}.grid{grid-template-columns:1fr}table,tbody,tr,td,th{display:block}th{display:none}}
+</style></head><body>
+<nav><div class="wrap"><a class="brand" href="#top">Agent Workflow Starter</a><div class="links"><a href="#start">はじめる</a><a href="#workflow">ワークフロー</a><a href="#files">ファイル</a><a href="#tools">ツール</a><a href="#examples">例</a><a href="index.html" hreflang="en">English</a></div></div></nav>
+<header id="top"><div class="wrap"><h1>AIエージェントを安全に使って仕事を進める</h1><p class="lead">Claude Code などのファイル編集AIを使い、文章、調査、教材、ドキュメント、スクリプト、小規模プロジェクトを、確認可能でレビューしやすい形にするための実践ガイドです。</p><a class="button" href="#start">はじめる</a><a class="button alt" href="https://github.com&#47;logohere&#47;agent-workflow-starter">GitHubを開く</a></div></header><main class="wrap">
+<section id="start"><p class="label">Start</p><h2>まずリポジトリから始める</h2><p>リポジトリを clone または fork してローカルで開き、AIには最初から範囲を限定した1つのタスクを渡します。</p><pre>git clone https://github.com&#47;logohere&#47;agent-workflow-starter.git
+cd agent-workflow-starter</pre><div class="grid"><div class="card"><h3>1. ゴールを明確にする</h3><p>成果物、対象者、範囲、やらないこと、完了条件を指定します。</p></div><div class="card"><h3>2. 必要なファイルだけ読む</h3><p>タスクに必要なファイルだけを確認させます。</p></div><div class="card"><h3>3. 計画を書かせる</h3><p>変更ファイル、手順、チェック、今回やらない事項を列挙させます。</p></div><div class="card"><h3>4. 計画を疑う</h3><p>抜け、危険、範囲の広さ、承認が必要な点を確認します。</p></div><div class="card"><h3>5. 小さく変更する</h3><p>関係ない改善を混ぜず、必要な変更だけを行います。</p></div><div class="card"><h3>6. 引き継ぎを残す</h3><p>変更内容、通ったチェック、残作業を記録します。</p></div></div></section>
+<section><p class="label">Core rule</p><h2>ゴールをAIに任せない</h2><p>AIは下書き、検索、比較、整理、スクリプト作成、チェックに向いています。一方で、目的、判断基準、品質基準、承認、最終レビューは人間が持ちます。</p></section>
+<section><p class="label">Copy this</p><h2>Claude Code に最初に渡すプロンプト</h2><pre>このプロジェクトリポジトリで作業してください。
+README.md、CLAUDE.md、agent-ops.md、index.html、human-guide.html、bootstrap/bootstrap.md を確認してください。
+まだ編集はしないでください。
+現在の目的、次に行う可能性が高いタスク、利用できるチェック、承認が必要な事項を整理してください。</pre></section>
+<section id="workflow" class="band"><h2>レビュー可能な仕事にする</h2><p>計画、小さな変更、チェック、引き継ぎを使います。「全体を改善して」のような広すぎる依頼は避けます。</p></section>
+<section><p class="label">Bounded task</p><h2>AIに明確なターゲットを渡す</h2><pre>[対象者] 向けに [成果物] を作成または更新してください。
+[ファイル] を資料として使ってください。
+範囲は [スコープ] に限定してください。
+[やらないこと] は変更しないでください。
+編集前に実装計画を書いてください。
+編集後にチェックを実行し、差分を要約してください。</pre></section>
+<section><p class="label">Plan review</p><h2>実行前に計画を検証する</h2><pre>何が抜けている？
+何が壊れる可能性がある？
+どの前提が間違っている可能性がある？
+範囲が広すぎる部分は？
+他の作業に依存している部分は？
+今回は延期すべきものは？
+承認が必要なものは？
+最小の有用な変更は何？</pre></section>
+<section><p class="label">Context</p><h2>トークンは証拠に使う</h2><table><tr><td>全ファイルを貼り付ける代わりに</td><td>先に検索し、必要な箇所だけ読みます。</td></tr><tr><td>長いチャットで議論し続ける代わりに</td><td>引き継ぎを書き、ファイルから新しいセッションを始めます。</td></tr><tr><td>全面リライトを頼む代わりに</td><td>差分と各変更の理由を求めます。</td></tr><tr><td>同じ検索を繰り返す代わりに</td><td>ローカルSQLite検索や小さなスクリプトを使います。</td></tr></table></section>
+<section><p class="label">Restart</p><h2>会話が間違った方向に進んだらやり直す</h2><table><tr><td>誤った前提が繰り返される</td><td>停止し、正しい現在状態を引き継ぎに書きます。</td></tr><tr><td>AIが確認前に編集する</td><td>停止し、プロジェクト、Issue、PR、関連ファイルから再開します。</td></tr><tr><td>タスクの方向が変わった</td><td>古い決定を破棄済みとして記録し、新しいゴールを明示します。</td></tr><tr><td>複数の計画が混ざった</td><td>1つだけ選び、残りはフォローアップに回します。</td></tr></table></section>
+<section id="files" class="band"><h2>このリポジトリに入っているもの</h2><p>AI作業を限定し、検証し、途中から再開できるようにするためのファイルです。</p></section>
+<section><p class="label">Directory</p><h2>主要ファイルとフォルダ</h2><table><tr><td>README.md</td><td>リポジトリ概要と目次。</td></tr><tr><td>index.html</td><td>英語版GitHub Pagesサイト。</td></tr><tr><td>index-ja.html</td><td>日本語版GitHub Pagesサイト。</td></tr><tr><td>CLAUDE.md</td><td>Claude Code向け指示。</td></tr><tr><td>agent-ops.md</td><td>AIエージェントの標準作業手順。</td></tr><tr><td>bootstrap/</td><td>初回セットアップ。</td></tr><tr><td>.github/</td><td>Issue、PRテンプレート、CI。</td></tr><tr><td>templates/</td><td>Issue、PR、引き継ぎ、プロジェクト文書の再利用テンプレート。</td></tr><tr><td>scripts/</td><td>チェックとローカルユーティリティ。</td></tr><tr><td>advanced/</td><td>繰り返し問題向けの追加ツール。</td></tr></table></section>
+<section><p class="label">Checks</p><h2>変更を証明できる最小のチェックを実行する</h2><pre>npm run lint
+npm run test
+npm run smoke
+npm run validate
+npm run doctor</pre></section>
+<section><p class="label">Atomic work</p><h2>小さい部品から組み立てる</h2><table><tr><td>Atom</td><td>メモ、主張、引用、プロンプト1行、チェック項目、コマンド、関数、スモークチェック。</td></tr><tr><td>Molecule</td><td>タスク用プロンプト、Issueテンプレート、PRチェックリスト、セクション構成、小スクリプト。</td></tr><tr><td>Organism</td><td>ガイドのセクション、セットアップフロー、CIチェック群、検索フロー、引き継ぎプロセス。</td></tr><tr><td>Template</td><td>Issue、PR、実装計画、レッスンのテンプレート。</td></tr><tr><td>Page / Workflow</td><td>完成した文書、教材、セットアップフロー、作業ワークフロー。</td></tr></table></section>
+<section id="tools" class="band"><h2>同じ問題が繰り返すときだけ強いツールを足す</h2><p>時間を節約する、ミスを減らす、レビューしやすくする場合にだけツールを追加します。</p></section>
+<section><p class="label">Small scripts</p><h2>繰り返し作業をコマンド化する</h2><table><tr><td>ローカルの簡単なテキスト・ファイル処理</td><td>Python標準ライブラリ、rich、typer。</td></tr><tr><td>NodeスクリプトとCLI</td><td>tsx、commander、yargs、zod、fast-glob。</td></tr><tr><td>Markdown・文書チェック</td><td>prettier、markdownlint-cli、remark。</td></tr><tr><td>ブラウザチェック</td><td>playwright。</td></tr><tr><td>配布しやすい単一バイナリCLI</td><td>Go、Rust、Rust CLIならclap。</td></tr></table></section>
+<section><p class="label">Search</p><h2>検索方法を先に選ぶ</h2><table><tr><td>Exact lookup</td><td>ファイル名、見出し、コマンド、ID、正確な語句が分かる場合。</td></tr><tr><td>Keyword / FTS5</td><td>ファイル内で使われていそうな単語が分かる場合。</td></tr><tr><td>Fuzzy search</td><td>タイプミス、部分一致、表記揺れを想定する場合。</td></tr><tr><td>Semantic search</td><td>概念は分かるが表現が分からない場合。通常は埋め込みとベクトル検索が必要。</td></tr><tr><td>Hybrid search</td><td>キーワード精度と意味検索の再現率を両方使う場合。</td></tr></table></section>
+<section><p class="label">Named tools</p><h2>ツールは使う前に仕様を明記する</h2><table><tr><td>Name</td><td>正確なパッケージ名・ツール名は何か。</td></tr><tr><td>Install path</td><td>Homebrew、npm、Python、Go、Rust、手動、既存環境のどれか。</td></tr><tr><td>Command</td><td>ユーザーやAIが実行するコマンドは何か。</td></tr><tr><td>Check</td><td>成功をどう確認するか。</td></tr><tr><td>Rollback</td><td>削除または元に戻す方法は何か。</td></tr></table></section>
+<section id="examples" class="band"><h2>ツール追加の例</h2><p>最初はファイルとプロンプトだけで始めます。繰り返し作業が増えたらソフトウェアを追加します。</p></section>
+<section><p class="label">Software examples</p><h2>問題に合う最小のツールを選ぶ</h2><table><tr><td>GitHub Pages</td><td>このリポジトリのような静的プロジェクトサイト。</td></tr><tr><td>Railway</td><td>GitHubリポジトリから起動する小規模アプリ、API、worker、DB付きデモ。</td></tr><tr><td>Vercel / Netlify</td><td>プレビュー付きの静的サイトやフロントエンド。</td></tr><tr><td>Fly.io / Render</td><td>常時稼働バックエンドが必要な小規模サービス。</td></tr></table></section>
+<section><p class="label">Approval</p><h2>危険な変更は先に承認を取る</h2><p>ファイル削除、公開、認証情報、Git hooks、CI変更、有料サービス、DBスキーマ変更、依存関係追加、mainへのマージは事前承認を取ります。</p></section>
+<section><p class="label">Closeout</p><h2>最後に引き継ぎを残す</h2><pre>完了:
+変更:
+チェック:
+レビューが必要:
+フォローアップ:
+次のアクション:</pre></section>
+</main><footer class="wrap"><p>Agent Workflow Starter — 日本語</p></footer></body></html>

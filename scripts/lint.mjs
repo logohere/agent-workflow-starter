@@ -3,8 +3,11 @@ import path from "node:path";
 
 const required = [
   "README.md",
+  "README-ja.md",
   "CLAUDE.md",
   "human-guide.html",
+  "human-guide-ja.html",
+  "index-ja.html",
   "agent-ops.md",
   "bootstrap/bootstrap.md",
   "package.json",
